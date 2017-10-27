@@ -15,7 +15,18 @@ import Cocoa
 import PlaygroundSupport
 
 // Create canvas
-let canvas = Canvas(width: 400, height: 300)
+let canvas = Canvas(width: 500, height: 500)
+
+
+var x = 250
+
+
+func draw 
+
+
+
+
+
 
 /*:
  ## Add your code below
