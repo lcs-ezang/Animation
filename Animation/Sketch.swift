@@ -18,6 +18,9 @@ class Sketch : NSObject {
         // Set starting position
         x = 250
         
+        //Remove borders
+        canvas.drawShapesWithBorders = false
+        
     }
     
     // Runs in a loop, forever, to create the animated effect
@@ -27,17 +30,18 @@ class Sketch : NSObject {
         x += 1
         
         // Draw an ellipse going to the top right of the canvas
-        canvas.fillColor = red
-        canvas.drawEllipse(centreX: x, centreY: x, width: 20, height: 20)
+        canvas.fillColor = Color.red
+        canvas.drawEllipse(centreX: x, centreY: x, width: 50, height: 50)
         
-        canvas.fillColor = blue
-        canvas.drawEllipse(centreX: x, centreY: 500-x, width: 20, height: 20)
+        canvas.fillColor = Color.blue
+        canvas.drawEllipse(centreX: x, centreY: 500-x, width: 50, height: 50)
         
-        canvas.fillColor = green
-        canvas.drawEllipse(centreX: 500-x, centreY: x, width: 20, height: 20)
+        canvas.fillColor = Color.green
+        canvas.drawEllipse(centreX: 500-x, centreY: x, width: 50, height: 50)
         
-        canvas.fillColor = orange
-        canvas.drawEllipse(centreX: 500-x, centreY: 500-x, width: 20, height: 20)
-    }
+        canvas.fillColor = Color.yellow
+        canvas.drawEllipse(centreX: 500-x, centreY: 500-x, width: 50, height: 50)
     
+    
+}
 }
