@@ -15,7 +15,7 @@ import Cocoa
 import PlaygroundSupport
 
 // Create canvas
-let canvas = Canvas(width: 400, height: 300)
+let canvas = Canvas(width: 400, height: 400)
 
 /*:
  ## Add your code below
@@ -25,6 +25,95 @@ let canvas = Canvas(width: 400, height: 300)
  Use whitespace and comments as appropriate.
  */
 // Replace this comment with your first comment – what is the goal of the code you're about to write?
+
+//Translate the canvas
+canvas.translate(byX: 200, byY: 200)
+
+//Remove borders
+canvas.drawShapesWithBorders = false
+
+
+
+//Pumpkin poportions
+let pumpkinSize = random(from: 100, toButNotIncluding: 300)
+
+//Stem
+canvas.fillColor = Color.init(hue: 0, saturation: 25, brightness: 25, alpha: 100)
+canvas.drawEllipse(centreX: pumpkinSize/5+5, centreY: pumpkinSize/2, width: pumpkinSize/2, height: pumpkinSize/2)
+canvas.fillColor = Color.white
+canvas.drawEllipse(centreX: pumpkinSize/4+pumpkinSize/40, centreY: pumpkinSize/2-pumpkinSize/10, width: pumpkinSize/2, height: pumpkinSize/2)
+
+
+//Pumpkin color
+canvas.fillColor = Color.orange
+
+//Pumpkin
+canvas.drawEllipse(centreX: pumpkinSize/5, centreY: 0, width: pumpkinSize, height: pumpkinSize)
+canvas.drawEllipse(centreX: -pumpkinSize/5, centreY: 0, width: pumpkinSize, height: pumpkinSize)
+
+
+//Pumpkin eyes
+
+//Pumpkin eyes colours
+let pumpkinEyeColour = random(from: 1, toButNotIncluding: 4)
+
+if pumpkinEyeColour == 1{
+    canvas.fillColor = Color.black
+}; if pumpkinEyeColour == 2 {
+    canvas.fillColor = Color.yellow
+} else {
+    let h = random(from: 0, toButNotIncluding: 361)
+    let s = random(from: 75, toButNotIncluding: 100)
+    let b = random(from: 50, toButNotIncluding: 75)
+    
+    canvas.fillColor = Color.init(hue: h, saturation: s, brightness: b, alpha: 100)
+}
+
+//Pumpkin eye shapes
+let pumpkinEyes = random(from: 1, toButNotIncluding: 5)
+
+if pumpkinEyes == 1{
+    canvas.drawEllipse(centreX: pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/3, height: pumpkinSize/3)
+        canvas.drawEllipse(centreX: -pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/3, height: pumpkinSize/3)
+}; if pumpkinEyes == 2{
+    canvas.drawRectangle(centreX: pumpkinSize/4, centreY: pumpkinSize/5, width: pumpkinSize/3, height: pumpkinSize/3)
+        canvas.drawRectangle(centreX: -pumpkinSize/4, centreY: pumpkinSize/5, width: pumpkinSize/3, height: pumpkinSize/3)
+}; if pumpkinEyes == 3{
+    canvas.drawEllipse(centreX: pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/3, height: pumpkinSize/3)
+    canvas.drawEllipse(centreX: -pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/3, height: pumpkinSize/3)
+    canvas.fillColor = Color.orange
+    canvas.drawEllipse(centreX: pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/5, height: pumpkinSize/5)
+    canvas.drawEllipse(centreX: -pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/5, height: pumpkinSize/5)
+}; if pumpkinEyes == 4 {
+    canvas.drawEllipse(centreX: pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/3, height: pumpkinSize/3)
+    canvas.drawEllipse(centreX: -pumpkinSize/4, centreY: pumpkinSize/4, width: pumpkinSize/3, height: pumpkinSize/3)
+    canvas.fillColor = Color.orange
+    canvas.drawEllipse(centreX: pumpkinSize/4, centreY: pumpkinSize/3, width: pumpkinSize/3, height: pumpkinSize/3)
+    canvas.drawEllipse(centreX: -pumpkinSize/4, centreY: pumpkinSize/3, width: pumpkinSize/3, height: pumpkinSize/3)
+}
+
+//Pumpkin Mouth
+
+//Pumpkin Mouth colour
+if pumpkinEyeColour == 1{
+    canvas.fillColor = Color.black
+} else {
+    canvas.fillColor = Color.yellow
+}
+
+//Pumpkin Mouth Shapes
+let pumpkinMouthShape = random(from: 1, toButNotIncluding: 2)
+
+if pumpkinMouthShape == 1{
+    canvas.drawEllipse(centreX: 0, centreY: -pumpkinSize/4, width: pumpkinMouthShape/3, height: pumpkinMouthShape/3)
+}
+
+
+
+
+
+
+
 
 
 
