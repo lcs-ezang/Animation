@@ -9,6 +9,7 @@ class Sketch : NSObject {
     // Position of circle
     var x : Double
     var y : Double
+    var k : Double
     
     // This function runs once
     override init() {
@@ -16,6 +17,7 @@ class Sketch : NSObject {
         //Starting positions
         x = 0.0
         y = 0.0
+        k = 0.0
         
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
@@ -26,17 +28,17 @@ class Sketch : NSObject {
     func draw() {
         
         // Change position
-        
         x += 1
+
+        //change in height
+        for k in stride(from: -100.0, to: 600.0, by: 100.0){
+        y = -1/25*pow(x-50, 2)+k
         
+        // Draw the cannonball of the canvas
+        canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 10, height: 10)
         
-        //y = -125x^2-500x
-        
-        y = -1/125*pow(x-250, 2)+500
-        
-        // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 50, height: 50)
+
         
     }
-    
+    }
 }
