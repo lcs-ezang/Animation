@@ -8,26 +8,26 @@ class Sketch : NSObject {
     
     // Position of circle
     
-    var x : Int
-    var initialX : Int
-    var initialY : Int
+
+    var xPosition : Int
+    var yPosition : Int
     var changeInX : Int
     var changeInY :Int
     
     // This function runs once
     override init() {
-        
-        let x = 250
+
+
         
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
         
         // Set starting position and starting direction
 
-        var initialX = random(from: 26, toButNotIncluding: 475)
-        var initialY = random(from: 26, toButNotIncluding: 475)
-        var changeInX = random(from: -1, toButNotIncluding: 2)
-        var changeInY = random(from: -1, toButNotIncluding: 2)
+        xPosition = random(from: 26, toButNotIncluding: 475)
+        yPosition = random(from: 26, toButNotIncluding: 475)
+        changeInX = random(from: -5, toButNotIncluding: 6)
+        changeInY = random(from: -5, toButNotIncluding: 6)
 
     }
     //Initial start and direction
@@ -40,36 +40,36 @@ class Sketch : NSObject {
         //Move
 
         // Change direction
-        if initialX == 500
+        if xPosition >= 475
         {
-            changeInX = -1
+            changeInX = -5
         }
-        if initialX == 0
+        if xPosition <= 25
         {
-            changeInX = 1
+            changeInX = 5
         }
-        if initialY == 500
+        if yPosition >= 475
         {
-            changeInY = -1
+            changeInY = -5
         }
-        if initialY == 0
+        if yPosition <= 25
         {
-            changeInY = 1
+            changeInY = 5
         }
         
-        initialX += changeInX
-        initialY += changeInY
+        xPosition += changeInX
+        yPosition += changeInY
         
 
         
         //Wipe the screen
         canvas.drawShapesWithBorders = false
         canvas.fillColor = Color.white
-        canvas.drawRectangle(centreX: x, centreY: x, width: 500, height: 500)
+        canvas.drawRectangle(centreX: 250, centreY: 250, width: 500, height: 500)
         
         // Draw an ellipse in the middle of the canvas
         canvas.fillColor = Color.black
-        canvas.drawEllipse(centreX: initialX, centreY: initialY, width: 50, height: 50)
+        canvas.drawEllipse(centreX: xPosition, centreY: yPosition, width: 50, height: 50)
         
 
 
