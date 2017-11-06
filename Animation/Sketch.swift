@@ -7,16 +7,18 @@ class Sketch : NSObject {
     let canvas : Canvas
     
     // Position of circle
-    var x : Int
+    var x : Double
+    var y : Double
     
     // This function runs once
     override init() {
         
+        //Starting positions
+        x = 0.0
+        y = 0.0
+        
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
-        
-        // Set starting position
-        x = 250
         
     }
     
@@ -24,10 +26,16 @@ class Sketch : NSObject {
     func draw() {
         
         // Change position
+        
         x += 1
         
+        
+        //y = -125x^2-500x
+        
+        y = -1/125*pow(x-250, 2)+500
+        
         // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 50, height: 50)
         
     }
     
