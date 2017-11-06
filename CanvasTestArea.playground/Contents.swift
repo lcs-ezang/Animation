@@ -62,7 +62,7 @@ if pumpkinEyeColour == 1{
 }; if pumpkinEyeColour == 2 {
     canvas.fillColor = Color.yellow
 } else {
-    let h = random(from: 0, toButNotIncluding: 361)
+    let h = random(from: 90, toButNotIncluding: 361)
     let s = random(from: 75, toButNotIncluding: 100)
     let b = random(from: 50, toButNotIncluding: 75)
     
@@ -90,22 +90,46 @@ if pumpkinEyes == 1{
     canvas.fillColor = Color.orange
     canvas.drawEllipse(centreX: pumpkinSize/4, centreY: pumpkinSize/3, width: pumpkinSize/3, height: pumpkinSize/3)
     canvas.drawEllipse(centreX: -pumpkinSize/4, centreY: pumpkinSize/3, width: pumpkinSize/3, height: pumpkinSize/3)
+}; if pumpkinEyes == 5 {
+
 }
+
 
 //Pumpkin Mouth
 
 //Pumpkin Mouth colour
 if pumpkinEyeColour == 1{
     canvas.fillColor = Color.black
-} else {
+}; if pumpkinEyeColour == 2{
     canvas.fillColor = Color.yellow
+} else {
+   
+    let h = random(from: 0, toButNotIncluding: 361)
+    let s = random(from: 75, toButNotIncluding: 100)
+    let b = random(from: 50, toButNotIncluding: 75)
+    
+    canvas.fillColor = Color.init(hue: h, saturation: s, brightness: b, alpha: 100)
 }
 
 //Pumpkin Mouth Shapes
-let pumpkinMouthShape = random(from: 1, toButNotIncluding: 2)
+let pumpkinMouthShape = random(from: 2, toButNotIncluding: 3)
 
 if pumpkinMouthShape == 1{
-    canvas.drawEllipse(centreX: 0, centreY: -pumpkinSize/4, width: pumpkinMouthShape/3, height: pumpkinMouthShape/3)
+
+    canvas.drawEllipse(centreX: 0, centreY: -pumpkinSize/6, width: pumpkinSize/2, height: pumpkinSize/3)
+    canvas.fillColor = Color.orange
+    canvas.drawEllipse(centreX: 0, centreY: -pumpkinSize/20, width: pumpkinSize, height: pumpkinSize/8)
+    canvas.drawRectangle(centreX: -pumpkinSize/10, centreY: -pumpkinSize/7, width: pumpkinSize/10, height: pumpkinSize/10)
+    canvas.drawRectangle(centreX: pumpkinSize/10, centreY: -pumpkinSize/4-pumpkinSize/20, width: pumpkinSize/10, height: pumpkinSize/10)
+}; if pumpkinMouthShape == 2{
+    canvas.translate(byX: -pumpkinSize/3, byY: -pumpkinSize/8)
+    canvas.rotate(by: -60)
+    canvas.drawRectangle(centreX: pumpkinSize/10, centreY: 0, width: pumpkinSize/4, height: pumpkinSize/9)
+    canvas.rotate(by: 60)
+    canvas.translate(byX: pumpkinSize/6, byY: 0)
+    canvas.rotate(by: 60)
+    canvas.drawAxes()
+    canvas.drawRectangle(centreX: -pumpkinSize/10, centreY: 0, width: pumpkinSize/5, height: pumpkinSize/10)
 }
 
 
@@ -117,24 +141,6 @@ if pumpkinMouthShape == 1{
 
 
 
-/*:
- ## Use source control
- To keep your work organized, and receive feedback, source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source_control.png "Source Control")
- */
-/*:
- ## Template code
- The code below is necessary to see results in the Assistant Editor at right.
- 
- Please do not remove.
- 
- If you don't see output, remember to show the Assistant Editor, and switch to Live View:
- 
- ![timeline](timeline.png "Timeline")
- */
 // Don't remove the code below
 PlaygroundPage.current.liveView = canvas.imageView
 
