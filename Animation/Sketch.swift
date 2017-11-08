@@ -67,7 +67,7 @@ class Sketch : NSObject {
         canvas.fillColor = Color.white
         canvas.drawRectangle(centreX: 250, centreY: 250, width: 500, height: 500)
         
-        // Draw an ellipse in the middle of the canvas
+        // Draw an ellipse somewhere in the canvas
         canvas.fillColor = Color.black
         canvas.drawEllipse(centreX: xPosition, centreY: yPosition, width: 50, height: 50)
         
